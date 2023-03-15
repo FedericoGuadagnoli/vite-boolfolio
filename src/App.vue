@@ -1,10 +1,11 @@
 <script>
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
+import ProjectsList from './components/projects/ProjectsList.vue';
 const apiBaseUrl = 'http://localhost:8000/api/';
 export default {
   name: 'App',
-  components: { AppHeader },
+  components: { AppHeader, ProjectsList },
   data() {
     return {
       projects: []
@@ -13,7 +14,7 @@ export default {
   methods: {
     fetchProjects() {
       axios.get(apiBaseUrl + 'projects').then(res => {
-        console.log(res.data);
+        this.projects = res.data;
       })
     }
   },
@@ -25,5 +26,10 @@ export default {
 
 <template>
   <AppHeader></AppHeader>
+  <main>
+    <div class="container">
+      <ProjectsList :projects="projects"></ProjectsList>
+    </div>
+  </main>
 </template>
 
