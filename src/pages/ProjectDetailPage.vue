@@ -26,6 +26,9 @@ export default {
 
 <template>
     <div class="container d-flex justify-content-center align-items-center">
-        <ProjectCard :project="project"></ProjectCard>
+        <ProjectCard :isDetail="true" :project="project"></ProjectCard>
+    </div>
+    <div class="text-center py-5">
+        <RouterLink class="btn btn-danger" :to="{ name: 'home' }">Torna alla Home</RouterLink>
     </div>
 </template>
