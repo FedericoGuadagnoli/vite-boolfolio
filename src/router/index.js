@@ -4,6 +4,7 @@ import NotFoundPage from '../pages/NotFoundPage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
+    linkExactActiveClass: 'active',
     routes: [
         { path: '/', name: 'home', component: HomePage },
         { path: '/:pathMatch(.*)*', component: NotFoundPage }
