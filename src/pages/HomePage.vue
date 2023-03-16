@@ -26,9 +26,5 @@ export default {
 
 
 <template>
-    <main>
-        <div class="container">
-            <ProjectsList :projects="projects"></ProjectsList>
-        </div>
-    </main>
+    <ProjectsList :projects="projects"></ProjectsList>
 </template>

@@ -8,6 +8,9 @@ export default {
 
 <template>
   <AppHeader></AppHeader>
-  <RouterView></RouterView>
+  <main class="container">
+    <RouterView></RouterView>
+
+  </main>
 </template>
 
