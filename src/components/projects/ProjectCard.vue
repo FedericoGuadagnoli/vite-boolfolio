@@ -14,6 +14,10 @@ export default {
                     tech.label
                 }}</small>
             </div>
+            <div>
+                <RouterLink :to="{ name: 'project-detail', params: { id: project.id } }" class="btn btn-success">Dettagli
+                </RouterLink>
+            </div>
             <figure class="text-center h-50 w-100">
                 <img :src="project.image" :alt="project.title" class="img-fluid h-100">
             </figure>
