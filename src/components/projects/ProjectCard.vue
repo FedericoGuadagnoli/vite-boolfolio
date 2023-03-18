@@ -11,12 +11,13 @@ export default {
         <div
             class="card d-flex flex-column-reverse align-items-center bg-dark text-light h-100 justify-content-between  p-3">
             <div class="d-flex flex-wrap justify-content-center gap-3">
-                <small v-for="tech in project.technologies" class="p-1 rounded my-3" :class="['bg-' + tech.color]">{{
-                    tech.label
-                }}</small>
+                <small v-if="isDetail" v-for="tech in project.technologies" class="p-1 rounded my-3"
+                    :class="['bg-' + tech.color]">{{
+                        tech.label
+                    }}</small>
             </div>
             <div>
-                <RouterLink v-if="!isDetail" :to="{ name: 'project-detail', params: { id: project.id } }"
+                <RouterLink v-if="!isDetail" :to="{ name: 'project-detail', params: { slug: project.slug } }"
                     class="btn btn-success">Dettagli
                 </RouterLink>
             </div>
@@ -27,10 +28,19 @@ export default {
                 <h1 class="text-center">Progetto {{ project.title }}</h1>
                 <p class="text-center">{{ project.content }}</p>
                 <a v-if="isDetail" :href="project.link_github" class="btn btn-primary">Link GitHub</a>
-                <p v-if="isDetail">Tipo di progetto:
-                    <strong>{{ project.type.label }}</strong>
-                </p>
+                <RouterLink v-if="isDetail" :to="{ name: 'category-project', params: { id: project.type.id } }">
+                    <p>Tipo di progetto:
+                        <strong>{{ project.type.label }}</strong>
+                    </p>
+                </RouterLink>
             </div>
         </div>
     </div>
 </template>
+
+
+<style scoped> a {
+     text-decoration: none;
+     color: white;
+ }
+</style>
