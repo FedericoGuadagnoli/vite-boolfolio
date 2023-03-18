@@ -7,15 +7,15 @@ export default {
     components: { ProjectCard },
     data() {
         return {
-            project: null
+            project: []
         }
     },
     methods: {
         getProject() {
-            const e = apiBaseUrl + 'projects/' + this.$route.params.id;
+            const e = `${apiBaseUrl}projects/${this.$route.params.slug}`;
             axios.get(e).then(res => {
                 this.project = res.data;
-            })
+            });
         }
     },
     created() {
